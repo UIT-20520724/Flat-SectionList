@@ -26,6 +26,7 @@ export default function App() {
         style={styles.listImage}
         source={require('./assets/images/gym.jpg')}
       >
+        <View style={styles.height}>
         <FlatList
           data={workouts}
           renderItem={({ item }) => {
@@ -34,12 +35,14 @@ export default function App() {
             )
           }}
         />
+        </View>
       </ImageBackground>
-      <Text style={styles.listText}>SecondList - Fruits & Vegetables</Text>
+      <Text style={styles.listText}>SectionList - Fruits & Vegetables</Text>
       <ImageBackground
         style={styles.listImage}
         source={require('./assets/images/vegetables.jpg')}
       >
+        <View style={styles.height}>
         <SectionList
           sections={fruits_vegetables}
           keyExtractor={(item, index) => item + index}
@@ -52,6 +55,7 @@ export default function App() {
             <Text style={styles.scText}>{title}</Text>
           )}
         />
+        </View>
       </ImageBackground>
 
       <ExeSelected selectedText={selectedExe} />
@@ -65,6 +69,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   listImage: {
     height: 'auto',
@@ -77,11 +83,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'blue',
     marginVertical: 10,
+    marginTop: 30,
   },
   scText: {
     color: 'white',
     fontSize: 17,
     fontWeight: 'bold',
     margin: 15,
+  },
+  height: {
+    maxHeight: 300,
   }
 });
